@@ -1,0 +1,32 @@
+---
+title: "Test of plot scaling"
+author: "Eric Nord"
+date: "March 25, 2016"
+output: pdf_document
+---
+
+How to ensure that plots look the way you want them when compile in markdown?
+
+```{r}
+plot(cars)
+legend("topleft",inset=0.02,pch=21:23,pt.bg=c("white","grey","black"),legend=c("Testing 1","Testing 2","Testing 3"))
+```
+
+This chunk is not evaluated, but when run from the console creates a plot in a separate window.
+
+```{r, eval=FALSE}
+quartz(width=5,height=4) # on Windows use X11() rather than quartz()
+plot(cars)
+legend("topleft",inset=0.02,pch=21:23,pt.bg=c("white","grey","black"),legend=c("Testing 1","Testing 2","Testing 3"))
+abline(v=10,lty=3)
+```
+
+If we specify the same size for the figure does it look the same?
+
+```{r fig.width=5,fig.height=4}
+plot(cars)
+legend("topleft",inset=0.02,pch=21:23,pt.bg=c("white","grey","black"),legend=c("Testing 1","Testing 2","Testing 3"))
+abline(v=10,lty=3)
+```
+
+Yes, the vertical line on 10 just hits the edge of the legend.
