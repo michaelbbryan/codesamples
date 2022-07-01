@@ -6,5 +6,6 @@ This repository keeps code samples from several languages that I don't use on a 
 * SAS
 * HTML
 * PHP
+* C
 
 I have collected them over time from work utilities, class assignments and other lessons learned.
